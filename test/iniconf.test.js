@@ -85,4 +85,18 @@ assert.doesNotThrow(function() {
     iniconf.validate(data, schema)
 })
 
+var schema = {
+    foo: {
+        bar: 'string:asdf'
+    }
+}
+var data = {
+    foo: {
+    }
+}
+assert.doesNotThrow(function() {
+    iniconf.validate(data, schema)
+})
+assert.strictEqual(data.foo.bar, 'asdf')
+
 console.log('OK')
